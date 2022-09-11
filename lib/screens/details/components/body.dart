@@ -34,7 +34,7 @@ class Body extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        "${product.title}",
+                        product.title,
                         style: Theme.of(context).textTheme.headline4?.copyWith(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
