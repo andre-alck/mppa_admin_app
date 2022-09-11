@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mppa_application/constants.dart';
 import 'package:mppa_application/models/Product.dart';
-import 'package:mppa_application/screens/components/categories.dart';
-import 'package:mppa_application/screens/components/item_card.dart';
+import 'package:mppa_application/screens/details/details_screen.dart';
+import 'package:mppa_application/screens/home/components/categories.dart';
+import 'package:mppa_application/screens/home/components/item_card.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -34,11 +35,18 @@ class Body extends StatelessWidget {
                 crossAxisSpacing: kDefaultPadding,
                 childAspectRatio: 0.75,
               ),
-              itemBuilder: (context, index) =>
-                  ItemCard(product: products[index]),
+              itemBuilder: (context, index) => ItemCard(
+                product: products[index],
+                press: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          DetailsScreen(product: products[index])),
+                ),
+              ),
             ),
           ),
-        ),
+        )
       ],
     );
   }
