@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mppa_application/constants.dart';
 import 'package:mppa_application/models/Product.dart';
+import 'package:mppa_application/screens/details/components/product_title_with_image.dart';
 
 class Body extends StatelessWidget {
   final Product product;
@@ -27,22 +27,7 @@ class Body extends StatelessWidget {
                         topRight: Radius.circular(16),
                       )),
                 ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        product.title,
-                        style: Theme.of(context).textTheme.headline4?.copyWith(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                    ],
-                  ),
-                )
+                ProductTitleWithImage(product: product)
               ],
             ),
           )
