@@ -1,5 +1,4 @@
-// ignore_for_file: file_names
-
+// ignore: file_names
 import 'package:flutter/material.dart';
 
 class Product {
@@ -26,40 +25,40 @@ List<Product> products = [
       id: 1,
       title: "Portuguesa",
       price: 32.90,
-      size: 1,
+      size: 30,
       description: 'Ingredientes que compõem a pizza Portuguesa.',
       image: "assets/images/pizza_1.jpg",
-      color: const Color.fromARGB(155, 206, 41, 35)),
+      color: const Color.fromARGB(155, 66, 35, 206)),
   Product(
       id: 2,
       title: "Calabresa",
       price: 32.90,
-      size: 2,
+      size: 30,
       description: 'Ingredientes que compõem a pizza Calabresa.',
       image: "assets/images/pizza_2.jpg",
-      color: const Color.fromARGB(202, 184, 58, 54)),
+      color: const Color.fromARGB(201, 58, 184, 54)),
   Product(
       id: 3,
       title: "Frango",
       price: 32.90,
-      size: 3,
+      size: 30,
       description: 'Ingredientes que compõem a pizza Frango.',
       image: "assets/images/pizza_3.jpg",
-      color: const Color.fromARGB(240, 151, 55, 52)),
+      color: const Color.fromARGB(239, 235, 14, 6)),
   Product(
       id: 4,
       title: "Mimi",
       price: 32.90,
-      size: 4,
+      size: 30,
       description: 'Ingredientes que compõem a pizza Mimi.',
       image: "assets/images/pizza_4.jpg",
-      color: const Color.fromARGB(255, 192, 73, 69)),
+      color: const Color.fromARGB(255, 163, 69, 192)),
   Product(
       id: 5,
       title: "4 Queijos",
       price: 32.90,
-      size: 5,
+      size: 30,
       description: 'Ingredientes que compõem a pizza 4 Queijos.',
       image: "assets/images/pizza_5.jpg",
-      color: const Color.fromARGB(255, 207, 91, 87)),
+      color: const Color.fromARGB(255, 233, 218, 17)),
 ];

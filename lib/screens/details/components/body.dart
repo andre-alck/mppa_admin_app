@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mppa_application/constants.dart';
 import 'package:mppa_application/models/Product.dart';
 import 'package:mppa_application/screens/details/components/product_title_with_image.dart';
+import 'package:mppa_application/screens/details/components/color_and_size.dart';
 
 class Body extends StatelessWidget {
   final Product product;
@@ -19,13 +21,23 @@ class Body extends StatelessWidget {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(top: size.height * 0.3),
+                  padding: EdgeInsets.only(
+                      top: size.height * 0.12,
+                      left: kDefaultPadding,
+                      right: kDefaultPadding),
                   height: 500,
                   decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(16),
-                        topRight: Radius.circular(16),
-                      )),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(16),
+                      topRight: Radius.circular(16),
+                    ),
+                  ),
+                  child: Column(
+                    children: <Widget>[
+                      ColorAndSize(product: product),
+                    ],
+                  ),
                 ),
                 ProductTitleWithImage(product: product)
               ],
