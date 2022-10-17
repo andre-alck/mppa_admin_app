@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mppa_application/details/widgets/body.dart';
-import 'package:mppa_application/core/models/Product.dart';
+import 'package:mppa_application/core/models/product.dart';
 
 import '../widgets/app_bar.dart';
 
@@ -13,7 +13,9 @@ class DetailsPage extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Scaffold(
       backgroundColor: product.color,
       appBar: appBar(

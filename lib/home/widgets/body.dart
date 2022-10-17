@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mppa_application/core/constants.dart';
-import 'package:mppa_application/core/models/Product.dart';
+import 'package:mppa_application/core/models/product.dart';
 import 'package:mppa_application/details/pages/details_page.dart';
 import 'package:mppa_application/home/widgets/categories.dart';
 import 'package:mppa_application/itemcard/widgets/item_card.dart';

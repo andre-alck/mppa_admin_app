@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mppa_application/core/models/Product.dart';
+import 'package:mppa_application/core/models/product.dart';
 
 import '../../core/constants.dart';
 
