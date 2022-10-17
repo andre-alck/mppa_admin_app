@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mppa_application/constants.dart';
+import 'package:mppa_application/core/constants.dart';
 
 class Categories extends StatefulWidget {
-  const Categories({Key? key}) : super(key: key);
+  const Categories({
+    super.key,
+  });
 
   @override
   _CategoriesState createState() => _CategoriesState();

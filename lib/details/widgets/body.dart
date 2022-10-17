@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mppa_application/constants.dart';
-import 'package:mppa_application/models/Product.dart';
-import 'package:mppa_application/screens/details/components/product_title_with_image.dart';
-import 'package:mppa_application/screens/details/components/color_and_size.dart';
+import 'package:mppa_application/core/constants.dart';
+import 'package:mppa_application/core/models/Product.dart';
+import 'package:mppa_application/details/widgets/product_title_with_image.dart';
+import 'package:mppa_application/details/widgets/color_and_size.dart';
 
 class Body extends StatelessWidget {
   final Product product;

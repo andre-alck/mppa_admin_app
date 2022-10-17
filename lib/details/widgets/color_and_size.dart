@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mppa_application/models/Product.dart';
-import 'package:mppa_application/constants.dart';
+import 'package:mppa_application/core/models/Product.dart';
+import 'package:mppa_application/core/constants.dart';
 
 class ColorAndSize extends StatelessWidget {
   const ColorAndSize({
