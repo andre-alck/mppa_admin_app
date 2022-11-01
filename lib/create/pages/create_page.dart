@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mppa_admin/create/services/create_pizza_service.dart';
 
-import '../../pizza/models/pizza_model.dart';
+import '../../pizza/dtos/pizza_dto.dart';
 
 class CreatePage extends StatelessWidget {
   const CreatePage({
@@ -69,26 +69,27 @@ class CreatePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            final title = titleController.text.trim();
-            final description = descriptionController.text.trim();
-            final price = double.parse(
-              priceController.text.trim(),
-            );
+        onPressed: () {
+          final title = titleController.text.trim();
+          final description = descriptionController.text.trim();
+          final price = double.parse(
+            priceController.text.trim(),
+          );
 
-            final pizzaModel = PizzaModel(
-              title: title,
-              description: description,
-              price: price,
-            );
+          final pizzaModel = PizzaDTO(
+            title: title,
+            description: description,
+            price: price,
+          );
 
-            CreatePizzaService().savePizza(
-              pizzaModel,
-            );
-          },
-          child: const Icon(
-            Icons.publish,
-          )),
+          CreatePizzaService().savePizza(
+            pizzaModel,
+          );
+        },
+        child: const Icon(
+          Icons.publish,
+        ),
+      ),
     );
   }
 }
