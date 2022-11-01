@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../pizza/models/pizza_model.dart';
+
 class CreatePage extends StatelessWidget {
   const CreatePage({
     super.key,
@@ -66,7 +68,19 @@ class CreatePage extends StatelessWidget {
                   icon: const Icon(
                     Icons.publish,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    final title = titleController.text.trim();
+                    final description = descriptionController.text.trim();
+                    final price = double.parse(
+                      titleController.text.trim(),
+                    );
+
+                    final pizzaModel = PizzaModel(
+                      title: title,
+                      description: description,
+                      price: price,
+                    );
+                  },
                 ),
               ),
             ],
