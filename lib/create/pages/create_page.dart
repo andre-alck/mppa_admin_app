@@ -64,35 +64,31 @@ class CreatePage extends StatelessWidget {
                   labelText: "Preço",
                 ),
               ),
-              Center(
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.publish,
-                    size: 48,
-                  ),
-                  onPressed: () {
-                    final title = titleController.text.trim();
-                    final description = descriptionController.text.trim();
-                    final price = double.parse(
-                      priceController.text.trim(),
-                    );
-
-                    final pizzaModel = PizzaModel(
-                      title: title,
-                      description: description,
-                      price: price,
-                    );
-
-                    CreatePizzaService().savePizza(
-                      pizzaModel,
-                    );
-                  },
-                ),
-              ),
             ],
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            final title = titleController.text.trim();
+            final description = descriptionController.text.trim();
+            final price = double.parse(
+              priceController.text.trim(),
+            );
+
+            final pizzaModel = PizzaModel(
+              title: title,
+              description: description,
+              price: price,
+            );
+
+            CreatePizzaService().savePizza(
+              pizzaModel,
+            );
+          },
+          child: const Icon(
+            Icons.publish,
+          )),
     );
   }
 }
