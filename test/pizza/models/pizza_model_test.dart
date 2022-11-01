@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mppa_admin/chore/models/pizza_model.dart';
 
@@ -116,7 +118,7 @@ void main() {
       );
 
       test(
-        'Given JsonList When model list is created Then test id',
+        'Given Map JsonList When model list is created Then test id',
         () {
           List<Map<String, dynamic>> jsonList = [
             {
@@ -154,6 +156,29 @@ void main() {
               jsonList[i]['id'],
             );
           }
+        },
+      );
+
+      test(
+        'Given String stringJson When model list is created Then test id',
+        () {
+          const String stringJson = """
+          [{"id":"ab6c7e63-6409-47ad-9377-e9ed1c6937a1","title":"t1","description":"d1","price":1.0,"registrationDate":"2022-11-01T15:11:06.86461"},{"id":"9457050c-ac00-43ed-a23d-91cfbb858e0a","title":"title2","description":"description2","price":2.0,"registrationDate":"2022-11-01T17:44:55.444319"}]
+          """;
+
+          final map = json.decode(
+            stringJson,
+          );
+
+          expect(
+            map[0]['id'],
+            'ab6c7e63-6409-47ad-9377-e9ed1c6937a1',
+          );
+
+          expect(
+            map[1]['id'],
+            '9457050c-ac00-43ed-a23d-91cfbb858e0a',
+          );
         },
       );
     },
