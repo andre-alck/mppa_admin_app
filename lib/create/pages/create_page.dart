@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mppa_admin/create/services/create_pizza_service.dart';
 
-import '../../pizza/dtos/pizza_dto.dart';
+import '../../chore/dtos/pizza_dto.dart';
 
 class CreatePage extends StatelessWidget {
   const CreatePage({
