@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mppa_admin/chore/models/pizza_model.dart';
-import 'package:mppa_admin/update/services/update_pizza_service.dart';
+import 'package:mppa_admin/chore/widgets/user_input_widget.dart';
+import 'package:mppa_admin/update/widgets/update_pizza_button_widget.dart';
 
 class UpdatePage extends StatelessWidget {
   const UpdatePage({
@@ -32,68 +33,36 @@ class UpdatePage extends StatelessWidget {
           ),
           child: Column(
             children: <Widget>[
-              TextFormField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.blue.shade100,
-                  suffixIcon: const Icon(
-                    Icons.title,
-                  ),
-                  hintText: pizzaModel.title,
-                ),
+              UserInputWidget(
                 controller: titleController,
+                hintText: 'Título',
+                icon: Icons.title,
               ),
               const SizedBox(
                 height: 10,
               ),
-              TextFormField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.blue.shade100,
-                  suffixIcon: const Icon(
-                    Icons.description,
-                  ),
-                  hintText: pizzaModel.description,
-                ),
+              UserInputWidget(
                 controller: descriptionController,
+                hintText: 'Descrição',
+                icon: Icons.description,
               ),
               const SizedBox(
                 height: 10,
               ),
-              TextFormField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.blue.shade100,
-                  suffixIcon: const Icon(
-                    Icons.price_change,
-                  ),
-                  hintText: pizzaModel.price.toString(),
-                ),
+              UserInputWidget(
                 controller: priceController,
+                hintText: 'Preço',
+                icon: Icons.price_change,
               ),
             ],
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          final newPizzaModel = PizzaModel(
-            id: pizzaModel.id,
-            title: titleController.text.trim(),
-            description: descriptionController.text.trim(),
-            price: double.parse(
-              priceController.text.trim(),
-            ),
-            registrationDate: pizzaModel.registrationDate,
-          );
-
-          UpdatePizzaService().updatePizza(
-            newPizzaModel,
-          );
-        },
-        child: const Icon(
-          Icons.publish,
-        ),
+      floatingActionButton: UpdatePizzaButtonWidget(
+        pizzaModel: pizzaModel,
+        titleController: titleController,
+        descriptionController: descriptionController,
+        priceController: priceController,
       ),
     );
   }

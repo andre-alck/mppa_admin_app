@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mppa_admin/create/services/create_pizza_service.dart';
 
-import '../../chore/dtos/pizza_dto.dart';
+import '../../chore/widgets/user_input_widget.dart';
+import '../widgets/create_pizza_button_widget.dart';
 
 class CreatePage extends StatelessWidget {
   const CreatePage({
@@ -27,70 +27,35 @@ class CreatePage extends StatelessWidget {
           ),
           child: Column(
             children: <Widget>[
-              TextFormField(
+              UserInputWidget(
                 controller: titleController,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.blue.shade100,
-                  suffixIcon: const Icon(
-                    Icons.title,
-                  ),
-                  labelText: "Título",
-                ),
+                labelText: 'Título',
+                icon: Icons.title,
               ),
               const SizedBox(
                 height: 25,
               ),
-              TextFormField(
+              UserInputWidget(
                 controller: descriptionController,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.blue.shade100,
-                  suffixIcon: const Icon(
-                    Icons.description,
-                  ),
-                  labelText: "Descrição",
-                ),
+                labelText: 'Descrição',
+                icon: Icons.description,
               ),
               const SizedBox(
                 height: 25,
               ),
-              TextFormField(
+              UserInputWidget(
                 controller: priceController,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.blue.shade100,
-                  suffixIcon: const Icon(
-                    Icons.price_change,
-                  ),
-                  labelText: "Preço",
-                ),
+                labelText: 'Preço',
+                icon: Icons.price_change,
               ),
             ],
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          final title = titleController.text.trim();
-          final description = descriptionController.text.trim();
-          final price = double.parse(
-            priceController.text.trim(),
-          );
-
-          final pizzaModel = PizzaDTO(
-            title: title,
-            description: description,
-            price: price,
-          );
-
-          CreatePizzaService().savePizza(
-            pizzaModel,
-          );
-        },
-        child: const Icon(
-          Icons.publish,
-        ),
+      floatingActionButton: CreatePizzaButtonWidget(
+        titleController: titleController,
+        descriptionController: descriptionController,
+        priceController: priceController,
       ),
     );
   }
