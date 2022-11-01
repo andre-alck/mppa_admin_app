@@ -5,6 +5,8 @@ class DeletePage extends StatelessWidget {
     super.key,
   });
 
+  static const String routeName = "/delete";
+
   @override
   Widget build(
     BuildContext context,

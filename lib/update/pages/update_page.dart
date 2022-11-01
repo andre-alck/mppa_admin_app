@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:mppa_admin/create/services/create_pizza_service.dart';
+import 'package:mppa_admin/chore/models/pizza_model.dart';
+import 'package:mppa_admin/update/services/update_pizza_service.dart';
 
-import '../../chore/dtos/pizza_dto.dart';
-
-class CreatePage extends StatelessWidget {
-  const CreatePage({
+class UpdatePage extends StatelessWidget {
+  const UpdatePage({
     super.key,
   });
 
-  static const String routeName = "/create";
+  static const String routeName = "/update";
 
   @override
   Widget build(
     BuildContext context,
   ) {
+    PizzaModel pizzaModel = ModalRoute.of(
+      context,
+    )!
+        .settings
+        .arguments as PizzaModel;
+
     var titleController = TextEditingController();
     var descriptionController = TextEditingController();
     var priceController = TextEditingController();
@@ -28,43 +33,43 @@ class CreatePage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               TextFormField(
-                controller: titleController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.blue.shade100,
                   suffixIcon: const Icon(
                     Icons.title,
                   ),
-                  labelText: "Título",
+                  hintText: pizzaModel.title,
                 ),
+                controller: titleController,
               ),
               const SizedBox(
-                height: 25,
+                height: 10,
               ),
               TextFormField(
-                controller: descriptionController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.blue.shade100,
                   suffixIcon: const Icon(
                     Icons.description,
                   ),
-                  labelText: "Descrição",
+                  hintText: pizzaModel.description,
                 ),
+                controller: descriptionController,
               ),
               const SizedBox(
-                height: 25,
+                height: 10,
               ),
               TextFormField(
-                controller: priceController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.blue.shade100,
                   suffixIcon: const Icon(
                     Icons.price_change,
                   ),
-                  labelText: "Preço",
+                  hintText: pizzaModel.price.toString(),
                 ),
+                controller: priceController,
               ),
             ],
           ),
@@ -72,20 +77,18 @@ class CreatePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          final title = titleController.text.trim();
-          final description = descriptionController.text.trim();
-          final price = double.parse(
-            priceController.text.trim(),
+          final newPizzaModel = PizzaModel(
+            id: pizzaModel.id,
+            title: titleController.text.trim(),
+            description: descriptionController.text.trim(),
+            price: double.parse(
+              priceController.text.trim(),
+            ),
+            registrationDate: pizzaModel.registrationDate,
           );
 
-          final pizzaModel = PizzaDTO(
-            title: title,
-            description: description,
-            price: price,
-          );
-
-          CreatePizzaService().savePizza(
-            pizzaModel,
+          UpdatePizzaService().updatePizza(
+            newPizzaModel,
           );
         },
         child: const Icon(

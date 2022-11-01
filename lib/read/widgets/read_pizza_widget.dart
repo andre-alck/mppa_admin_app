@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:mppa_admin/chore/dtos/pizza_dto.dart';
 import 'package:mppa_admin/chore/models/pizza_model.dart';
+import 'package:mppa_admin/update/pages/update_page.dart';
 
 import '../services/read_pizza_service.dart';
 
@@ -43,11 +45,48 @@ class ReadWidget extends StatelessWidget {
                 index,
               ) {
                 return ListTile(
-                  leading: const Icon(
-                    Icons.local_pizza,
+                  trailing: IconButton(
+                    icon: const Icon(
+                      Icons.local_pizza,
+                    ),
+                    onPressed: () => Navigator.pushNamed(
+                      context,
+                      UpdatePage.routeName,
+                      arguments: PizzaModel(
+                        title: listPizzaModel
+                            .elementAt(
+                              index,
+                            )
+                            .title,
+                        description: listPizzaModel
+                            .elementAt(
+                              index,
+                            )
+                            .description,
+                        price: listPizzaModel
+                            .elementAt(
+                              index,
+                            )
+                            .price,
+                        id: listPizzaModel
+                            .elementAt(
+                              index,
+                            )
+                            .id,
+                        registrationDate: listPizzaModel
+                            .elementAt(
+                              index,
+                            )
+                            .registrationDate,
+                      ),
+                    ),
                   ),
                   title: Text(
-                    listPizzaModel.elementAt(index).title,
+                    listPizzaModel
+                        .elementAt(
+                          index,
+                        )
+                        .title,
                   ),
                 );
               },

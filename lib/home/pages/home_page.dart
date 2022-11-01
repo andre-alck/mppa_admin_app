@@ -5,6 +5,8 @@ class HomePage extends StatelessWidget {
     super.key,
   });
 
+  static const String routeName = "/homepage";
+
   @override
   Widget build(
     BuildContext context,

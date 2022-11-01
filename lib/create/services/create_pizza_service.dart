@@ -5,7 +5,7 @@ import 'package:mppa_admin/chore/dtos/pizza_dto.dart';
 
 class CreatePizzaService {
   Future<http.Response> savePizza(
-    PizzaDTO pizzaModel,
+    PizzaDTO pizzaDTO,
   ) {
     return http.post(
       Uri.parse(
@@ -15,7 +15,7 @@ class CreatePizzaService {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: jsonEncode(
-        pizzaModel.toJson(),
+        pizzaDTO.toJson(),
       ),
     );
   }

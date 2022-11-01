@@ -7,6 +7,8 @@ class ReadPage extends StatelessWidget {
     super.key,
   });
 
+  static const String routeName = "/read";
+
   @override
   Widget build(
     BuildContext context,

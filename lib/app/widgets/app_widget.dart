@@ -4,7 +4,7 @@ import '../../create/pages/create_page.dart';
 import '../../delete/delete_page.dart';
 import '../../home/pages/home_page.dart';
 import '../../read/pages/read_page.dart';
-import '../../update/update_page.dart';
+import '../../update/pages/update_page.dart';
 
 class App extends StatelessWidget {
   const App({
@@ -17,25 +17,25 @@ class App extends StatelessWidget {
   ) {
     return MaterialApp(
       title: "mppa_admin",
-      initialRoute: "/homepage",
+      initialRoute: HomePage.routeName,
       routes: {
-        "/homepage": (
+        HomePage.routeName: (
           context,
         ) =>
             const HomePage(),
-        "/create": (
+        CreatePage.routeName: (
           context,
         ) =>
             const CreatePage(),
-        "/read": (
+        ReadPage.routeName: (
           context,
         ) =>
             const ReadPage(),
-        "/update": (
+        UpdatePage.routeName: (
           context,
         ) =>
             const UpdatePage(),
-        "/delete": (
+        DeletePage.routeName: (
           context,
         ) =>
             const DeletePage(),
