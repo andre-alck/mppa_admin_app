@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mppa_admin/create/services/create_pizza_service.dart';
 
-import '../pizza/models/pizza_model.dart';
+import '../../pizza/models/pizza_model.dart';
 
 class CreatePage extends StatelessWidget {
   const CreatePage({
@@ -67,18 +68,23 @@ class CreatePage extends StatelessWidget {
                 child: IconButton(
                   icon: const Icon(
                     Icons.publish,
+                    size: 48,
                   ),
                   onPressed: () {
                     final title = titleController.text.trim();
                     final description = descriptionController.text.trim();
                     final price = double.parse(
-                      titleController.text.trim(),
+                      priceController.text.trim(),
                     );
 
                     final pizzaModel = PizzaModel(
                       title: title,
                       description: description,
                       price: price,
+                    );
+
+                    CreatePizzaService().savePizza(
+                      pizzaModel,
                     );
                   },
                 ),

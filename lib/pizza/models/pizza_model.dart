@@ -8,4 +8,10 @@ class PizzaModel {
     required this.description,
     required this.price,
   });
+
+  Map<String, dynamic> toJson() => {
+        "title": title,
+        "description": description,
+        "price": price,
+      };
 }
