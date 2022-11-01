@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mppa_application">
+    package="com.example.mppa_admin">
    <application
-        android:label="mppa_application"
+        android:label="mppa_admin"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

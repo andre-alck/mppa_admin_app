@@ -1,4 +1,4 @@
-package com.example.mppa_application
+package com.example.mppa_admin
 
 import io.flutter.embedding.android.FlutterActivity
 
