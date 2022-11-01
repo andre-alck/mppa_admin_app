@@ -15,7 +15,10 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             IconButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(
+                context,
+                "/create",
+              ),
               icon: const Icon(
                 Icons.create,
               ),
@@ -24,7 +27,10 @@ class HomePage extends StatelessWidget {
               height: 10,
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(
+                context,
+                "/read",
+              ),
               icon: const Icon(
                 Icons.read_more,
               ),
@@ -33,7 +39,10 @@ class HomePage extends StatelessWidget {
               height: 10,
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(
+                context,
+                "/update",
+              ),
               icon: const Icon(
                 Icons.update,
               ),
@@ -42,7 +51,10 @@ class HomePage extends StatelessWidget {
               height: 10,
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(
+                context,
+                "/delete",
+              ),
               icon: const Icon(
                 Icons.delete,
               ),
